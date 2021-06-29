@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../images/fav.png" type="image/x-icon"/>
+<meta http-equiv="Pragma" content="no-cache">
+<META HTTP-EQUIV="ache-control" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<title>SmartPetFeeder数据展示</title>
+<link href="../css/petstatus.css" rel="stylesheet"/>
+
+<link rel="stylesheet" href="../css/petstatus.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/highcharts.js"></script>
+<script src="../js/jquery.parallax-scroll.js"></script>
+<header>
+
+</header>
+<body >
+<div style="width:100%; height: 100%">
+    <div id='div1' style="width:12%;">
+    <form id='form1' style="width:100%; float:left; height: 1000px; background: #389dc1;" action="petstatus.php" method="post">
+        <nav>
+        <div class="person">
+            <div class="name">
+                <div id="user_name" class='user_name' style="height: 20px;"></div>
+                <div class="arrows" id="arrow1"><img src="../images/arrows-down.png" alt="箭头" draggable="false"/></div>
+            </div>
+        </div>
+            <div class="alert" style="margin-right: 3%;" id="alert1"><a href="../index.html">退出</a></div>
+        </nav>
+        <input type="submit" class="change" name="change"     id="set feed" value="喂食设置"/>
+        <input type="submit" class="change" name="change"     id="pet pic"  value="宠物照片"/>
+        <input type="submit" class="change" name="change"     id="eat stat" value="饮食情况"/>
+        <input type="submit" class="change" name="change"     id="warn"     value="报警信息"/>
+    </form>
+    </div>
+    <div id='div2' class="content" style="width:86%; overflow:hidden;">
+        <h1 class="title_smart" style="text-align: center;font-size: 30px;margin:20px;">温度和进食情况信息展示</h1>
+    <div class="tendency-box">
+	<p id="data-show">环境温度</p>
+    <div class="data_search_info">
+	    <button id="data-btn1">环境温度</button>
+        <span><button id="data-btn2">饮食情况</button></span>
+        <form id="search_box" >
+
+            <label class="year">年<input type="number" name='year' class='search_input' value="2021" min="1970" /></label>
+
+            <label class="month">月<input type="number" name='month' class='search_input' value="6" min="1" max="12" /></label>
+
+            <label class="day">日<input type="number" name='day' class='search_input' value="14" min="1" max="31"/></label>
+
+            <input type='button' id="search_button" name='search' class="button_blue" value="查询"/>
+
+        </form>
+    </div>
+    <div id="mychart"></div>
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript">
+    var theID =	'<?php $s= $_COOKIE['username']; echo $s; ?>';
+    $(function () {
+        $(document).ready(function() {
+            $('#user_name').html(theID);})
+    });
+</script>
+<script src="../js/petstatus.js"></script>
+</html>
+

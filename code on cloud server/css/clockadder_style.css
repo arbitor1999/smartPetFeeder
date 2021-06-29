@@ -1,0 +1,421 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background:url('../images/bg.jpg') #dbe4e6;
+	overflow:hidden;
+}
+
+body{
+	font:15px/1.3 Arial, sans-serif;
+	color: #4f4f4f;
+	z-index:1;
+}
+.name{
+	height: 70px;
+	text-align: center;
+	background-color: #72c1d2;
+
+}
+.user_name{
+	width:50%;
+	font-size: 20px;
+	margin-left:10px;
+	margin-top:20px;
+	float: left;
+}
+.change{
+	width:100%;
+	background-color:#389dc1;
+	height:100px;
+	margin-bottom: 20px;
+	overflow:hidden;
+	position:relative;
+	cursor:pointer;
+	border: 10px;
+	color:#E0E0E0;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.scrolled_information {
+	text-align: center;
+	width:350px;
+	height:400px;
+	position:relative;
+	margin: 0 auto;
+	background-color: #f0a3af;
+}
+.feed_information{
+	font-size: 20px;
+	color:#ffffff;
+	margin: 10px;
+	text-align:left;
+	transform: translate(90px);
+}
+a, a:visited {
+	outline:none;
+	color:#389dc1;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header, aside{
+	display: block;
+}
+
+
+/*-------------------------
+	The clocks
+--------------------------*/
+
+
+#clock{
+	width:370px;
+	padding:40px;
+	margin:200px auto 60px;
+	position:relative;
+}
+
+#clock:after{
+	content:'';
+	position:absolute;
+	width:400px;
+	height:20px;
+	border-radius:100%;
+	left:50%;
+	margin-left:-200px;
+	bottom:2px;
+	z-index:-1;
+}
+
+
+#clock .display{
+	text-align:center;
+	padding: 40px 20px 20px;
+	border-radius:6px;
+	position:relative;
+	height: 54px;
+}
+
+
+/*-------------------------
+	Light color theme
+--------------------------*/
+
+
+#clock.light{
+	background-color:#f3f3f3;
+	color:#272e38;
+}
+
+#clock.light:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+#clock.light .digits div span{
+	background-color:#272e38;
+	border-color:#272e38;	
+}
+
+#clock.light .digits div.dots:before,
+#clock.light .digits div.dots:after{
+	background-color:#272e38;
+}
+
+#clock.light .alarm{
+	background:url('../images/alarm_light.jpg');
+}
+
+#clock.light .display{
+	background-color:#dddddd;
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #fafafa;
+}
+
+
+/*-------------------------
+	Dark color theme
+--------------------------*/
+
+
+#clock.dark{
+	background-color:#272e38;
+	color:#cacaca;
+}
+
+#clock.dark:after{
+	box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#clock.dark .digits div span{
+	background-color:#cacaca;
+	border-color:#cacaca;	
+}
+
+#clock.dark .alarm{
+	background:url('../images/alarm_dark.jpg');
+}
+
+#clock.dark .display{
+	background-color:#0f1620;
+	box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #2d3642;
+}
+
+#clock.dark .digits div.dots:before,
+#clock.dark .digits div.dots:after{
+	background-color:#cacaca;
+}
+
+
+
+/*-------------------------
+		Button
+--------------------------*/
+
+
+.button-holder{
+	text-align:center;
+	padding-bottom:100px;
+	width:400px;
+}
+
+a.button{
+	background-color:#f6a7b3;
+	
+	background-image:-webkit-linear-gradient(top, #f6a7b3, #f0a3af);
+	background-image:-moz-linear-gradient(top, #f6a7b3, #f0a3af);
+	background-image:linear-gradient(top, #f6a7b3, #f0a3af);
+
+	border:1px solid #eb9ba7;
+	border-radius:2px;
+
+	box-shadow:0 2px 2px #ccc;
+
+	color:#fff;
+	text-decoration: none !important;
+	padding:15px 20px;
+	display:inline-block;
+	cursor:pointer;
+
+	position:relative;
+	z-index: 1;
+}
+
+a.button:hover{
+	opacity:0.9;
+}
+
+.alarm-button{
+	width: 44px;
+	height: 42px;
+	vertical-align: middle;
+	margin-left: -6px;
+	margin-right: -44px;
+	display: inline-block;
+	background: url('../images/alarm_btn.png');
+	position: relative;
+	z-index: 0;
+	cursor: pointer;
+}
+
+
+/*-------------------------
+	Alarm Dialog
+--------------------------*/
+
+
+/* Hide the arrows dispayed in number inputs in webkit */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+.overlay{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.2);
+	z-index:10;
+}
+
+
+
+#alarm-dialog,
+
+#alarm-dialog h2{
+	text-transform: uppercase;
+	font-size:18px;
+	color:#5e6268;
+	padding: 30px 0;
+}
+
+#alarm-dialog label{
+	text-transform: uppercase;
+	background-color: #f4f4f4;
+	width: 80px;
+	height: 62px;
+	font-size: 11px;
+	display: inline-block;
+	padding: 10px;
+	margin: 15px;
+}
+
+#alarm-dialog label input{
+	display: block;
+	border: 0;
+	font: inherit;
+	font-size: 17px;
+	padding: 6px;
+	outline: none;
+	text-align: center;
+	width: 59px;
+	margin: 10px auto;
+	background-color:#fff;
+}
+
+#alarm-dialog .button-holder{
+	padding-top: 50px;
+	padding-bottom:0;
+}
+
+#alarm-dialog .button-holder .button{
+	box-shadow:0 2px 2px #eee;
+	padding:13px 22px;
+	margin:3px;
+}
+
+.button.blue{
+	background-color:#82cddd;
+	width: 100px;
+	background-image:-webkit-linear-gradient(top, #86d3e4, #82cddd);
+	background-image:-moz-linear-gradient(top, #86d3e4, #82cddd);
+	background-image:linear-gradient(top, #86d3e4, #82cddd);
+	height:80px;
+	transform: translateY(-15px);
+	margin-left: 10px;
+	margin-right:10px;
+	border-color:#72c1d2;
+}
+.button.red{
+	background-color:#82cddd;
+	width: 100px;
+	height:80px;
+	margin-left: 10px;
+	margin-right:10px;
+	transform: translateY(-15px);
+}
+
+#alarm-dialog .close{
+	width: 36px;
+	height: 36px;
+	background: url('../images/close.png');
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	cursor:pointer;
+}
+
+
+/*----------------------------
+	The Demo Footer
+-----------------------------*/
+
+
+footer{
+
+	width: 770px;
+	font: normal 16px Arial, Helvetica, sans-serif;
+	padding: 15px 35px;
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	margin-left: -420px;
+
+	background-color:#1f1f1f;
+
+	background-image:-webkit-linear-gradient(top, #1f1f1f, #101010);
+	background-image:-moz-linear-gradient(top, #1f1f1f, #101010);
+	background-image:linear-gradient(top, #1f1f1f, #101010);
+
+	border-radius:2px 2px 0 0;
+
+	box-shadow: 0 -1px 4px rgba(0,0,0,0.4);
+	z-index:1;
+}
+
+footer a.tz{
+	font-weight:normal;
+	font-size:16px !important;
+	text-decoration:none !important;
+	display:block;
+	margin-right: 300px;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	color:#bfbfbf !important;
+	z-index:1;
+}
+
+footer a.tz:before{
+	content: '';
+	background: url('http://cdn.tutorialzine.com/misc/enhance/v2_footer_bg.png') no-repeat 0 -53px;
+	width: 138px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	bottom: -3px;
+}
+
+footer .close{
+	position: absolute;
+	cursor: pointer;
+	width: 8px;
+	height: 8px;
+	background: url('http://cdn.tutorialzine.com/misc/enhance/v2_footer_bg.png') no-repeat 0 0px;
+	top:10px;
+	right:10px;
+	z-index: 3;
+}
+
+footer #tzine-actions{
+	position: absolute;
+	top: 8px;
+	width: 500px;
+	right: 50%;
+	margin-right: -650px;
+	text-align: right;
+	z-index: 2;
+}
+
+footer #tzine-actions iframe{
+	display: inline-block;
+	height: 21px;
+	width: 95px;
+	position: relative;
+	float: left;
+	margin-top: 11px;
+}
+
+.person .arrows{height:25px;float:left;overflow:hidden;width:30%;margin-top: 20px;}
+.person .arrows img{transform: scale(0.5);}
+.alert{display:none;background:white;position:relative;top:10px;right:0;z-index:999;font-size:14px;width:156px;padding:2px;border-radius:5px;box-shadow:0 2px 3px 0 #e3e3e3;}
+.alert a{display:block;padding:6px 0 6px 20px;}
+.alert a:hover{background:#f5f5f5;}

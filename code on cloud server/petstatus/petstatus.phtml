@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../css/petstatus.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>petstatus</title>
+</head>
+<body bgcolor="#faebd7">
+
+
+
+<script src="../js/petstatus.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script type="text/javascript">
+    let theID =	'<?php $s= $_COOKIE['username']; echo $s; ?>';
+    $(document).ready(function() {
+        $('#user_name').html(theID);
+    });
+</script>
+
+
+</body>
+
+</html>

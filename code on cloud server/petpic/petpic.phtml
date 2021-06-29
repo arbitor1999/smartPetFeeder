@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../css/petpic.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <META    HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META    HTTP-EQUIV="Expires" CONTENT="0">
+    <link rel="icon" href="../images/fav.png" type="image/x-icon"/>
+    <title>smartpetfeeder宠物照片</title>
+</head>
+<body>
+<div style="width:100%">
+    <div id="div1">
+        <form id='person' style="width:12%; float:left; height: 1000px; background: #389dc1;" action="petpic.php" method="post">
+            <nav>
+        <div class="person">
+            <div class="name">
+                <div id="user_name" class="user_name"></div>
+                <div class="arrows" id="arrow1"><img src="../images/arrows-down.png" alt="箭头" draggable="false"/></div>
+            </div>
+        </div>
+                <div class="alert" style="margin-right: 3%;" id="alert1"><a href="../index.html">退出</a></div>
+            </nav>
+        <input type="submit" class="change" name="change"     id="set feed" value="喂食设置"/>
+        <input type="submit" class="change" name="change"     id="pet pic"  value="宠物照片"/>
+        <input type="submit" class="change" name="change"     id="eat stat" value="饮食情况"/>
+        <input type="submit" class="change" name="change"     id="warn"     value="报警信息"/>
+    </form>
+
+    </div>
+    <div id="div2" style="width:80%; height:100%; overflow:hidden;text-align: center;">
+        <h1 class="title_smart">宠物照片</h1>
+        <div class="pic_search" id="pic_search">
+            <form id="search_box" action="petpic.php" method="post">
+
+                <label class="year">
+                    年份设置
+                    <input id='Year' type="number" name='year' class='search_input' value="2021" min="1970" />
+                </label>
+
+                <label class="month">
+                    月份设置
+                    <input id='Month' type="number" name='month' class='search_input' value="6" min="1" max="12" />
+                </label>
+
+                <label class="day">
+                    日期设置
+                    <input id='Day' type="number" name='day' class='search_input' value="15" min="1" max="31"/>
+                </label>
+
+                <label class="animal">
+                    动物种类
+                    <select id="Se" name="type" class='search_select' title="动物种类"><option id='a' value="a">狗</option><option id='b' value="b">猫</option></select>
+                </label>
+
+                <input type='submit' id="search_button" name='search' class="button_blue" value="查询"/>
+
+                <a id="DL" class = 'download' href="">
+                    <img  class= 'download_button' src="../images/downarr.jpg" >
+                    图片下载
+                </a>
+
+            </form>
+        </div>
+        <div class="Box" id="Box">
+            <div class="all" id='all'>
+                <div class="screen" id="screen">
+                    <ul id="ul">
+                    </ul>
+                    <ol id="ol">
+                    </ol>
+                    <div id="arr">
+                        <span id="left"><</span>
+                        <span id="right">></span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script src="../js/petpic.js"></script>
+<script type="text/javascript">
+    let theID =	'<?php $s= $_COOKIE['username']; echo $s; ?>';
+    $(document).ready(function() {
+        $('#user_name').html(theID);
+    });
+</script>
+
+
+
+</body>
+</html>

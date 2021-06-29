@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "socket_server1.py", line 4, in <module>
+    P1 = Publisher("./" + 'data.txt', host, port_server)
+  File "/home/raspCom/socket_base.py", line 16, in __init__
+    self.server.bind(self.address)
+OSError: [Errno 98] Address already in use

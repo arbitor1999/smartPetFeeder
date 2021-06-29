@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Smart Pet Feeder</title>
+    <link rel="icon" href="./images/fav.png" type="image/x-icon"/>
+    <style type="text/css">
+ *{ padding:0; margin:0; list-style:none; border:0;}
+        .Box{ width:1200px;
+            margin:15px auto;
+            position:relative;
+}
+        .logo{
+            margin-top:30px;
+            margin-left:200px;                 
+ }
+        .all{
+            width:400px;
+            height:400px;
+            padding:7px;
+            border:none;
+            margin:0px auto;
+            position:relative;
+        }
+        .screen{
+            width:400px;
+            height:400px;
+            overflow:hidden;
+            position:relative;
+            border: none;
+        }
+        .screen li{ width:400px; height:400px; overflow:hidden; float:middle; border-radius:50%; }
+        .screen ul{ position:absolute; left:0; top:0px; width:4800px; }
+        .all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+        .all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+        .all ol li.current{ background:yellow;}
+ 
+        #arr {display: none;}
+        #arr span{ width:40px; 
+             height:40px; 
+             position:absolute; 
+             left:5px; top:50%; margin-top:-20px; background:#000; 
+              cursor:pointer; line-height:40px; text-align:center; font-weight:bold; font-family:'黑体'; font-size:30px; color:#fff; opacity:0.3; border:1px solid #fff;}
+        #arr #right{right:5px; left:auto;}
+       .all1{ 
+            left:550px;
+            width:550px;
+            top:0%;
+            height:300px;
+            border:1px solid #ccc;
+            position:absolute;
+}
+
+.row {
+    width:33%;
+    margin:10px 198px;
+    position:relative;
+    horiz-align: center;
+    color:#1f212f;
+    transform: translateX(200px);
+}
+
+.title_smart{
+    width:67%;
+    margin: 10px 198px;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 50px;
+}
+.pet{
+    width:600px;
+    height:600px;
+    transform:translateY(-150px) scaleX(1) scaleY(1);
+}
+.input-txt-row {
+	width:98.5%;
+	height:40px;
+	line-height:26px;
+	padding:5px; 
+    font-size: 16px;
+    /* color:#B7B7B9; */
+    color:#000;
+    vertical-align:middle ;
+    ime-mode:disabled;
+    border:solid 1px #CCC;
+    border-radius:0px;
+}
+.input-txt-pad {
+	padding-right : 100px;
+	padding-right : 5px;
+}
+.login-btn {
+	cursor:pointer;
+	width:47%;
+    height:50px;
+    height : 42px\9; /* IE8 and below */
+    border-style:none;
+    padding-left: 5px;
+    transform: translateX(10px);
+    background-color:#A90000;
+    font-size: 20px;
+    color:#FFFFFF;
+    vertical-align:bottom;
+}
+ .register-btn {
+     cursor:pointer;
+     width:47%;
+     height:50px;
+     height : 42px\9; /* IE8 and below */
+     border-style:none;
+     position: relative;
+     left:20px;
+     background-color:#A90000;
+     font-size: 20px;
+     color:#FFFFFF;
+     vertical-align:bottom;
+ }
+ .author{
+     color:#aeaeae;
+     font-size: 12px;
+     transform: translateX(700px);
+     width:200px;
+ }
+    </style>
+
+</head>
+ 
+<body bgcolor="#FFF3D1">
+<div class="Box" id="Box">
+<div class="logo" id="logo">
+<!--<img src="images/pet1.png" width="295" height="82" />-->
+</div>
+<div class="all" id='all'>
+    <div class="screen" id="screen">
+        <ul id="ul">
+            <li><img class='pet' src="images/pet1.jpeg" /></li>
+        </ul>
+        <ol>
+ 
+        </ol>
+        <div id="arr">
+            <span id="left"><</span>
+            <span id="right">></span>
+        </div>
+    </div>
+</div>
+	      <!-- <div id="left" onclick="changeViewImg()"></div> -->
+<h1 class="title_smart">智能宠物喂食系统</h1>
+<form id="login_form" action="login.php" method="post">
+    <div class="row">
+        <input class="input-txt-row" type="text" id="user_name" name="username" placeholder="用户名" onKeyDown="enterPassword(event)"/>
+    </div>
+    <div id="passwd_area" class="row">
+        <input class="input-txt-row input-txt-pad"  type="password"  id="password" name="password"  placeholder="密码"  onKeyDown="enterSMSCode(event)" />
+    </div>
+    <div class="row">
+        <input type="submit" class="login-btn" name="login" id="login_button" value="登录"/>
+        <input type="submit" class="register-btn" name="register" id="register_button" value="注册"/>
+    </div>
+
+</form>
+
+</div>
+<footer class="author"> by 岳韶华</footer>
+</body>
+</html>
